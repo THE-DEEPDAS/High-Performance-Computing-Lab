@@ -1,0 +1,21 @@
+#include <omp.h>
+#include <stdio.h>
+
+int numt;
+
+int main() {
+
+    #pragma omp parallel
+    {
+        int tid = omp_get_thread_num();
+
+        #pragma omp master 
+        {
+            numt = omp_get_num_threads();
+            printf("numt was calculated by %d\n", tid);
+        }
+
+        // NO implicit barrier here but master will create a barrier
+        printf("Hello World from Thread %d of %d\n", tid, numt);
+    }
+}
