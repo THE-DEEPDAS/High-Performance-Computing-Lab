@@ -1,0 +1,6 @@
+without static keyword when declaring the long arrays it will store the things on stack
+Stack size is very small (8 MB) so memory overflow error might occur
+
+This is allocated in the static/data segment.
+
+double complex = real and imaginary part double and overall complex
